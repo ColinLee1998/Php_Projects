@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>註冊</title>
+    <link rel="stylesheet" href="../CSS/Register.css" />
+</head>
+<body>
+    <h1>註冊</h1>
+    <div>
+        <form id="RegForm" action="../PHP/Register.php" method="post" onsubmit="return checkinput()">
+            <table border="0">
+                <tr>
+                    <th>帳號</th>
+                    <td><input type="text" name="account" id="account" /></td>
+                </tr>
+                <tr>
+                    <th>密碼</th>
+                    <td><input type="password" name="password" /></td>
+                </tr>
+                <tr>
+                    <th>暱稱</th>
+                    <td><input type="text" name="name" /></td>
+                </tr>
+                <tr>
+                    <th>電子郵件</th>
+                    <td><input type="text" name="email" /></td>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        <center>
+                            <button type="submit" name="RegClick">註冊</button>
+                        </center>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+<script>
+    function checkinput() {
+        var re = /[^a-zA-Z0-9.-_]/;
+        var okAccount = re.exec(document.getElementById("account").value);
+        if(okAccount) {
+            alert("帳號只能輸入英數字。");
+            document.getElementById("account").focus();
+            return false;
+        }
+    }
+</script>
+</html>
